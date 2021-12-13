@@ -3,8 +3,10 @@ A quick way to setup a new nodejs project according to the team's preferences
 
 
 ## Prerequisites
-- *Nodejs* available and accessible
-- *Git* installed and accessible
+The following packages are expected to be installed, available and accessible from the PATH
+- *Nodejs*
+- *NPM* 
+- *Git*
 
 ## Usage
 - If you are looking for a quick and easy way to setup a new project: 
