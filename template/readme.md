@@ -18,6 +18,8 @@ In `service` directory you may include modules that combine repositories and pos
 In `usecase` directory you may inlude modules that describe the business logic of your application, separated into use cases.  
 Each of these layers may be omitted depending on your use case. 
 
+Other directories you may find in our codebase are `common`, `web`, `config` etc. These are harder to categorise and therefore they usually end up directly under root directory. As a general rule of thumb, you can group similar modules together in a directory, initialize them in an `index.js` file if needed and export whatever is meant to work as an API for the rest of you application. 
+
 ## Code style
 This template includes `standard.js` as code formatter. Please respect our choice and follow its guidelines in order to produce consistent and well formatted code.
 There are a lot of [integrations](https://github.com/standard/standard#are-there-text-editor-plugins) available for IDEs, so we suggest you find what is better suited for your workflow and install the plugins required. We also included a npm script so you can always run `npm run format` to format all files in your project.
