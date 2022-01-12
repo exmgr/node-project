@@ -33,14 +33,14 @@ When possible we would like to:
 - Prefer `const` over `let` and in general *immutability* over *mutability*
 - Prefer functions over classses, composability over inheritance, simplicity over complexity
 - Prefer `Array.map/filter/reduce/forEach` over loops  
-- Separate independent logic blocks into distinct functions for easier testing and reusability
+- Separate independent logic blocks into distinct functions for easier testing and reusability(D.R.Y)
 
 ## Library arsenal
 Here we list some of the libraries we commonly use:
 - `dotenv` to load configuration variables from the environment
-- `winston` as logger
-- `jest` for tests
-- `moment/moment-timezone` to manipulate time and date objects
+- `winston` for logging
+- `jest` for testing
+- `moment/moment-timezone` to manipulate time and date
 - `axios` as an http client
 - `lodash` for utility functions
 
