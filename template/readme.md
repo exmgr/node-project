@@ -1,21 +1,43 @@
-# Your great project
-Every great project starts with a little documentation!
+# README  
+This is just a dummy readme. But now that we got your attention let's discuss about what we consider best practices    
 
-## Installation
-Some descriptive instructions...
+## Documentation
+We believe that all code should be accompanied by documentation. That's why we suggest you always include a `README` file and keep it up to date
 
-then some lists of important steps...
-- one step
-- at a time
+## Project structure
+Most of the time we structure our code in layers, namely `datasource`, `repository`, `service` and `usecase`. The hierarchy of these layers is as follows
+`usecase -> service -> repository -> datasource`, meaning that usecases may depend on services that rely on repositories, which in turn build upon datasources.
+In `datasource` directory belong modules that describe how to fetch data from external sources, such as 3rd party APIs, files, databases and so on.
+In `repository` directory belong modules that are constructed by gluing together datasources and usually abstacting over them so that the source of data becomes irrelevant.
+In `service` directory you may include modules that combine repositories and possibly datasources in order to abstract over the capabilities you want to offer to layers above.
+In `usecase` directory you may inlude modules that describe the business logic of your application, separated into use cases.  
+Each of these layers may be omitted depending on your use case. 
 
-and perhaps a little bit of code...
-```
-bash clarify.sh
-```
+## Code style
+This template includes `standard.js` as code formatter. Please respect our choice and follow its guidelines in order to produce consistent and well formatted code.
+There are a lot of [integrations] (https://github.com/standard/standard#are-there-text-editor-plugins) available for IDEs, so we suggest you find what is better suited for your workflow and install the plugins required. We also included a npm script so you can always run `npm run format` to format all files in your project.
 
-## Requirements
-Whatever your app needs in order to run (environment variables, configuration file etc)
+## Code guidelines
+This is a short attempt to describe how our code looks like so that new comers can easily adopt this style of writing. By no means is this an exhaustive list and you are more than encouraged to also check our repositories so that you get an idea of how the real things is. Also bear in mind that most of these practices are just a general aggrement between us and may be subject to changes if the consensus, the language standars or the conditions change. We also encourage you to discuss with us any suggestions you may have.
+When possible we would like to:
+- Use `require` instead of `import` (at least until ES6 modules gain more popularity)
+- Group module importing: External libraries first, local modules later
+- Use either `async/await` or promise chains(linear if possible), but avoid callbacks
+- Handle or rethrow errors at lower levels, but don't forget to catch them at top levels
+- Keep variable and function names short but descriptive
+- Prefer `const` over `let` and in general *immutability* over *mutability*
+- Prefer functions over classses, composability over inheritance, simplicity over complexity
+- Prefer `Array.map/filter/reduce/forEach` over loops  
+- Separate independent logic blocks into distinct functions for easier testing and reusability
 
-## Usage
-Just a couple of examples of how would someone other than you find this useful
+## Library arsenal
+Here we list some of the libraries we commonly use:
+- `dotenv` to load configuration variables from the environment
+- `winston` as logger
+- `jest` for tests
+- `moment/moment-timezone` to manipulate time and date objects
+- `axios` as an http client
+- `lodash` for utility functions
 
+## Other
+- `docker` to deploy applications
