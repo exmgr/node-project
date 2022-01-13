@@ -22,6 +22,9 @@ Other directories you may find in our codebase are `common`, `web`, `config` etc
 
 ## Code style
 This template includes `standard.js` as code formatter. Please respect our choice and follow its guidelines in order to produce consistent and well formatted code.
+
+A git hook is set so that before every commit your code is checked against standard rules and proceed only if no errors occurred.
+
 There are a lot of [integrations](https://github.com/standard/standard#are-there-text-editor-plugins) available for IDEs, so we suggest you find what is better suited for your workflow and install the plugins required. We also included a npm script so you can always run `npm run format` to format all files in your project.
 
 ## Code guidelines
