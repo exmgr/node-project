@@ -44,6 +44,7 @@ Here we list some of the libraries we commonly use:
 - `jest` for testing
 - `moment/moment-timezone` to manipulate time and date
 - `axios` as an http client
+- `jwt` for authentication tokens
 - `lodash` for utility functions
 
 ## Other
