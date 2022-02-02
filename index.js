@@ -53,6 +53,7 @@ execFile('git', ['init'], {
     const dest = path.join(project, '.git/hooks')
     fs.rmSync(dest, { recursive: true, force: true })
     copyDir(path.join(__dirname, 'hooks'), dest, true)
+    copy(path.join(__dirname, '.gitignore'), path.join(project, '.gitignore'))
   })
   .stdout.on('data', msg => log(msg, 'git'))
 
