@@ -14,7 +14,7 @@ const fromTemplate = () => path.join(__dirname, 'template')
 const copy = (from, to) =>
   fs.copyFileSync(from, to, fs.constants.COPYFILE_EXCL)
 
-const copyDir = (from, to, makeExecutable = false) => {
+const copyDir = (from, to) => {
   log(chalk.blue.bold(to))
   fs.mkdirSync(to)
   fs.readdirSync(from, { withFileTypes: true })
@@ -26,12 +26,7 @@ const copyDir = (from, to, makeExecutable = false) => {
         copyDir(src, dest)
       } else {
         copy(src, dest)
-        if (makeExecutable) {
-          fs.chmodSync(dest, '755')
-          log(` + ${chalk.green(f.name)}`)
-        } else {
-          log(` + ${f.name}`)
-        }
+        log(` + ${f.name}`)
       }
     })
 }
@@ -49,10 +44,7 @@ execFile('git', ['init'], {
 })
   .on('exit', code => {
     newLine()
-    log('Importing git hooks', 'git')
-    const dest = path.join(project, '.git/hooks')
-    fs.rmSync(dest, { recursive: true, force: true })
-    copyDir(path.join(__dirname, 'hooks'), dest, true)
+    log('Creating .gitignore file')
     fs.renameSync(path.join(project, 'gitignore'), path.join(project, '.gitignore'))
   })
   .stdout.on('data', msg => log(msg, 'git'))

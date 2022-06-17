@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "./node_modules/standard/bin/cmd.js --fix"
+    "prepare": "husky install",
+    "format": "standard --fix"
   },
   "standard": {
     "ignore": ["*.sol", "**/*.sol"]
@@ -14,6 +15,7 @@
   "author": "The Ex Machina development team",
   "license": "ISC",
   "devDependencies": {
+    "husky": "^8.0.1",
     "standard": "latest"
   },
   "dependencies": {
